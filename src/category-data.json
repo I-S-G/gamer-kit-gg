@@ -1,0 +1,35 @@
+[
+    {
+        "id": "01cd",
+        "name": "Mice",
+        "imgUrl": "https://i.ytimg.com/vi/BuIdyyfm4og/maxresdefault.jpg"
+        
+    },
+    {
+        "id": "02cd",
+        "name": "Graphics Cards",
+        "imgUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/geforce-rtx-turing/overview/shop-2080-ti-1070@2x.jpg"
+
+
+    },
+    {
+        "id": "03cd",
+        "name": "Headphones",
+        "imgUrl": "https://wallpapercave.com/wp/wp5345578.jpg"
+
+    },
+    {
+        "id": "04cd",
+        "name": "Monitors",
+        "imgUrl": "https://oasis.opstatics.com/content/dam/oasis/page/frankfurt/27-share.jpg"
+
+    },
+    {
+        "id": "05cd",
+        "name": "Keyboards",
+        "imgUrl": "https://cdn.shopify.com/s/files/1/0199/7570/0534/products/65_Black_LifestlyeSquare_1024x1024.jpg?v=1654234115"
+
+    }
+
+]
+    

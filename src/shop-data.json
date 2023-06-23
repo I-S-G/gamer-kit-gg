@@ -1,0 +1,27 @@
+[
+    {
+        "id": "m1",
+        "name": "Razer Viper Ultimate",
+        "price": 150,
+        "imgUrl": "https://m.media-amazon.com/images/I/61M7B24YNEL.jpg"
+    },
+    {
+        "id": "m2",
+        "name": "Logitech G Pro X Superlight",
+        "price": 150,
+        "imgUrl": "https://resource.logitechg.com/d_transparent.gif/content/dam/gaming/en/products/shroud/shroud-mouse-gallery-1.png"
+    },
+    {
+        "id": "m3",
+        "name": "The Finalmouse Starlight Pro",
+        "price": 189.99,
+        "imgUrl": "https://cdn.shopify.com/s/files/1/2377/4861/products/tenz_grande.png?v=1669869082"
+    },
+    {
+        "id": "m4",
+        "name": "Ninjutso Sora Suprelight",
+        "price": 189.99,
+        "imgUrl": "https://us.maxgaming.com/bilder/artiklar/22855.jpg?m=1668589204"
+    }
+   
+]

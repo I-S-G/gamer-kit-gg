@@ -1,0 +1,35 @@
+.shop-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+    height: 320px;
+    position: relative;
+    cursor: pointer;
+    border: 1px black solid;
+}
+
+
+.shop-item-image {
+    height: 85%;
+    margin-bottom: 8px;
+}
+
+.footer {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+.add-to-cart-button {
+    position: absolute;
+    width: 80%;
+    bottom: 50px;
+    visibility: hidden;
+   
+}
+
+.shop-item-container:hover .add-to-cart-button {
+    visibility: visible;
+}
