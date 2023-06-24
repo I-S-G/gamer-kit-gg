@@ -13,6 +13,8 @@
 .shop-item-image {
     height: 85%;
     margin-bottom: 8px;
+    object-fit: contain;
+    width: 100%;
 }
 
 .footer {

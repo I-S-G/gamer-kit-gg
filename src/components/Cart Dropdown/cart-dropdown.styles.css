@@ -23,7 +23,9 @@
 }
 
 .checkout-button {
-    width: 100%;
+    width: 80%;
+    margin-bottom: 14px;
+    height: 45px;
 }
 
 .cart-item {
@@ -44,11 +46,4 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.checkout-link {
-   background-color: red;
-   width: 70%;
-   height: 45px;
-   margin-bottom: 14px;
 }
