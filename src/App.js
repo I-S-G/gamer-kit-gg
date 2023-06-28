@@ -13,7 +13,7 @@ function App() {
       <Route element = {<NavBar />} path='/' >
         <Route element = {<Home />} index />
         <Route element = {<Authentication />} path='authentication' />
-        <Route element = {<Shop />} path='shop' />
+        <Route element = {<Shop />} path='shop/*' />
         <Route element = {<Checkout />} path = 'checkout' />
       </Route>
    </Routes>

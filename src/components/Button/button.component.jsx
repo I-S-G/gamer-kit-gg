@@ -1,9 +1,23 @@
-import "./button.styles.css";
+import { BaseButton, InvertedButton, GoogleButton} from "./button.styles";
 
-const Button = ({label, custom = "", buttonType, ...otherProps}) => {
+export const BUTTON_TYPE_CLASSES = {
+    base: "base",
+    google: "google",
+    inverted: "inverted"
+};
 
+const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) => (
+    {
+        [BUTTON_TYPE_CLASSES.base]: BaseButton,
+        [BUTTON_TYPE_CLASSES.google]: GoogleButton,
+        [BUTTON_TYPE_CLASSES.inverted]: InvertedButton
+    }[buttonType]
+);
+
+const Button = ({children, buttonType, ...otherProps}) => {
+    const CustomButton = getButton(buttonType)
     return(
-        <button className= {`button ${buttonType? buttonType: ""} ${custom}`} {...otherProps}>{label}</button>
+        <CustomButton {...otherProps}>{children} </CustomButton>
     )
 }
 

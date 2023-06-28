@@ -1,11 +1,11 @@
-import Categories from "../../components/Categories/categories";
-import "./home.styles.css";
+import Directory from "../../components/Directory/directory";
+import { HomeDiv } from "./home.styles";
 
 const Home = () => {
     return(
-        <div className="home">
-            <Categories />
-        </div>
+        <HomeDiv>
+            <Directory />
+        </HomeDiv>
     )
 }
 

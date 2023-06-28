@@ -1,49 +1,51 @@
-.checkout-item {
+import styled from "styled-components";
+
+export const CheckoutItemContainer = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     border-bottom: 1px solid grey;
     height: 200px;
-}
+`;
 
-.checkout-item-img {
+export const ItemImage = styled.img`
     height: 150px;
     width: 130px;
     object-fit: contain;
     border: 1px solid black;
-}
+`;
 
-.checkout-item-name {
+export const ItemName = styled.span`
     width: 22%;
     margin: 0 45px 0 45px;
-}
+`;
 
-.checkout-item-quantity {
+export const ItemQuantityContainer = styled.span`
     width: 20%;
     margin-right: 10px;
     display: flex;
     user-select: none;
     align-items: center;
-}
+`;
 
-.quantity-change-button {
+export const QuantityChangeButton = styled.div`
     cursor: pointer;
-}
+`;
 
-.quantity-number {
+export const QuantityNumber = styled.span`
     margin: 0 4px;
     display: flex;
     justify-content: center;
     width: 18px;
-}
+`;
 
-.checkout-item-price {
+export const ItemPrice = styled.span`
     width: 23%;
-}
+`;
 
-.remove-checkout-item-button {
+export const RemoveItemButton = styled.div`
     cursor: pointer;
     justify-self: end;
     font-weight: bold;
     user-select: none;
-}
+`;

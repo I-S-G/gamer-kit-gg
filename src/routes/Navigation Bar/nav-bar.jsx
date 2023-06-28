@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import { signOutUser } from "../../utils/firebase.utils";
 import { UserContext } from "../../context/user-context";
 import { CartContext } from "../../context/cart-context";
-import "./nav-bar.styles.css";
-import { ReactComponent as GG } from "./assets/gg.svg";
-import { ReactComponent as Cart } from "./assets/cart.svg";
+import { NavbarContainer, NavLogoAndName, NavLogo, NavTitle, NavLinksContainer, NavSignOut, CartContainer, CartSvg, CartNumber } from "./nav-bar.styles.jsx";
 import CartDropdown from "../../components/Cart Dropdown/cart-dropdown.component";
 
 const NavBar = () => {
@@ -25,14 +23,14 @@ const NavBar = () => {
    
     return(
        <Fragment>
-            <div className="nav-bar">
+            <NavbarContainer>
                 
-                    <Link to= "./" className="logo-and-name-container" > 
-                        <GG className = "logo" />
-                        <span className="name">Gamer Kit GG</span>
-                    </Link>
+                    <NavLogoAndName to= "./" > 
+                        <NavLogo />
+                        <NavTitle>Gamer Kit GG</NavTitle>
+                    </NavLogoAndName>
                     
-                <div className="links-container">
+                <NavLinksContainer>
                     <Link to = "/shop" >
                         SHOP
                     </Link>
@@ -41,9 +39,9 @@ const NavBar = () => {
                     </Link>
                     {
                         currentUser ? (
-                            <span className="sign-out" onClick = {handleSignOut}>
+                            <NavSignOut onClick = {handleSignOut}>
                                 SIGN OUT
-                            </span>
+                            </NavSignOut>
                             
                         ) : (
                             <Link to = "/authentication" >
@@ -52,16 +50,16 @@ const NavBar = () => {
                         )
                     }
 
-                    <div className="cart-container" onClick= {handleCartOpen}  >
-                        <Cart className = 'cart' />
-                        <span className="cart-number">{cartQuantity}</span>
-                    </div>
+                    <CartContainer onClick= {handleCartOpen}  >
+                        <CartSvg />
+                        <CartNumber>{cartQuantity}</CartNumber>
+                    </CartContainer>
 
                     {
                         isCartOpen && (<CartDropdown />)
                     }
-                </div>
-            </div>
+                </NavLinksContainer>
+            </NavbarContainer>
             <Outlet />
        </Fragment>
     )

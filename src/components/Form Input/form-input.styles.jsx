@@ -1,40 +1,41 @@
-.group {
+import styled, { css } from "styled-components";
+
+const shrinkLabel = css`
+    font-size: 12px;
+    top: -12px;
+`;
+
+export const Group = styled.div`
     position: relative;
     display: flex;
     align-items: center;
     margin: 25px 0;
-}
+`;
 
-.label {
+export const Label = styled.label`
     position: absolute;
     font-size: 16px;
     left: 5px;
     color: grey;
     transition: ease all 300ms;
     pointer-events: none;
-}
 
+    ${({shrink}) => shrink && shrinkLabel }
+`;
 
-.form-input {
+export const Input = styled.input`
     width: 100%;
     padding: 0px 10px 0px 5px;
     border: none;
     border-bottom: 1px solid black;
     height: 48px;
     font-size: 16px;
-}
 
-.form-input:focus {
-    outline: none;
-}
+    &:focus {
+        outline: none;
+    }
 
-.form-input:focus ~ .label {
-    font-size: 12px;
-    top: -12px;
-    color: black;
-}
-
-.shrink {
-    font-size: 12px;
-    top: -12px;
-}
+    &:focus ~ ${Label} {
+        ${shrinkLabel}
+    }
+`;

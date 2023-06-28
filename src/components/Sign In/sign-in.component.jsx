@@ -2,7 +2,7 @@ import { signInWithGooglePopup, signInWithGoogleRedirect, getRedirectR, createUs
 import { useEffect, useState } from "react";
 import FormInput from "../Form Input/form-input.component";
 import Button from "../Button/button.component";
-import "./sign-in.component.styles.css";
+import { SignInContainer, GoogleButtons, Title, Subtitle } from "./sign-in.component.styles";
 
 const SignIn = () => {
 
@@ -67,19 +67,23 @@ const SignIn = () => {
     }
 
     return(
-        <div className="sign-in">
-            <h2 className="title">I have an account</h2>
-            <span className="subtitle">Sign in with email and password</span>
+        <SignInContainer>
+            <Title>I have an account</Title>
+            <Subtitle>Sign in with email and password</Subtitle>
             <form onSubmit={handleSubmit}>
                 <FormInput label= "Email" type = "email" name = "email" value = {email} onChange = {handleChange} required />
                 <FormInput label= "Password" type = "password" name = "password" value = {password} onChange = {handleChange} required />
-                <Button label= "sign in" />
+                <Button> sign in </Button>
             </form>
-            <div className="google-buttons-container">
-                <Button onClick={logGooglePopupUser} label = "Sign in with google popup" buttonType= "google" /> 
-                <Button onClick={signInWithGoogleRedirect} label = "Sign in with google redirect" buttonType= "google" />
-            </div>
-        </div>
+            <GoogleButtons>
+                <Button onClick={logGooglePopupUser} buttonType= "google"> 
+                    Sign in with google popup
+                </Button>
+                <Button onClick={signInWithGoogleRedirect} buttonType= "google">
+                    Sign in with google redirect
+                </Button>
+            </GoogleButtons>
+        </SignInContainer>
     )
 }
 

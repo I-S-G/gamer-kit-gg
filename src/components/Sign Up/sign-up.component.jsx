@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createUser, createUserWithEmail } from "../../utils/firebase.utils";
 import FormInput from "../Form Input/form-input.component";
 import Button from "../Button/button.component";
-import "./sign-up.styles.css";
+import { SignUpContainer, Title, Subtitle } from "./sign-up.styles";
 
 const SignUp = () => {
 
@@ -41,17 +41,17 @@ const SignUp = () => {
     }
 
     return(
-        <div className="sign-up">
-            <h2 className="title">I don't have an account</h2>
-            <span className="subtitle">Sign up with email and password</span>
+        <SignUpContainer>
+            <Title>I don't have an account</Title>
+            <Subtitle>Sign up with email and password</Subtitle>
             <form className="sign-up-form" onSubmit={handleSubmit}> 
                 <FormInput label = "Display Name" required type = "text" name="displayName" value={displayName} onChange={handleChange} />
                 <FormInput label = "Email" required type = "email" name="email" value={email} onChange={handleChange} />
                 <FormInput label = "Password" required type = "password" name="password" value={password} onChange={handleChange} />
                 <FormInput label = "Confirm Password" required type = "password" name="confirmPassword" value={confirmPassword} onChange={handleChange} />
-                <Button label= "sign up" />
+                <Button> sign up </Button>
             </form>
-        </div>
+        </SignUpContainer>
     )
 }
 

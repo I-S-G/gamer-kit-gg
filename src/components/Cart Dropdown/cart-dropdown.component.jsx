@@ -1,8 +1,7 @@
 import { CartContext } from "../../context/cart-context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../Button/button.component";
-import "./cart-dropdown.styles.css";
+import { CartItemsContainer, CartItemsList, CheckoutButton, CartItem, CartItemImg, CartItemDetails, Empty} from "./cart-dropdown.styles";
 
 const CartDropdown = () => {
 
@@ -15,27 +14,30 @@ const CartDropdown = () => {
 
 
     return(
-        <div className="cart-items-container">
-            <div className="cart-items-list">
+        <CartItemsContainer>
+            <CartItemsList>
                 {
+                    cartItems.length? 
                     cartItems.map((cartItem) => {
                         const { id, name, imgUrl, quantity, price } = cartItem;
                         return (
-                            <div key={id} className="cart-item"> 
-                                <img src= {imgUrl} alt= {name} className="cart-item-img" />
-                                <div className="cart-item-details">
+                            <CartItem key={id}> 
+                                <CartItemImg src= {imgUrl} alt= {name} />
+                                <CartItemDetails>
                                     <span> {name} </span>
                                     <span>{quantity} x ${price}</span>
-                                </div>
-                            </div>
+                                </CartItemDetails>
+                            </CartItem>
                         )
-                    })
+                    }): <Empty> Cart is Empty </Empty>
                 }
-            </div>
+            </CartItemsList>
 
-                <Button label= "go to checkout" custom="checkout-button" onClick = {goToCheckoutHandler} />
+                <CheckoutButton onClick = {goToCheckoutHandler}>
+                    go to checkout
+                </CheckoutButton>
 
-    </div>
+    </CartItemsContainer>
     )
 }
 

@@ -1,19 +1,19 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/cart-context";
 import CheckoutItemsContainer from "../../components/Checkout Items Container/checkout-items-container.component";
-import "./checkout.styles.css";
+import { CheckoutContainer, CheckoutTotal } from "./checkout.styles";
 
 const Checkout = () => {
 
     const { totalPrice } = useContext(CartContext);
 
     return(
-        <div className="checkout-page">
+        <CheckoutContainer>
             <CheckoutItemsContainer />
-            <div className="total">
+            <CheckoutTotal>
                 <p>Total: ${totalPrice}</p>
-            </div>
-        </div>
+            </CheckoutTotal>
+        </CheckoutContainer>
     )
 }
 
