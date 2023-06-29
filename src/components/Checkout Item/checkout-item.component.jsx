@@ -14,23 +14,23 @@ import {
 const CheckoutItem = ({item}) => {
 
     const { name, imgUrl, quantity, price } = item;
-    const { removeCartItem, increaseCartItem, decreaseCartItem } = useContext(CartContext);
+    const { clearItemFromCart, addItemToCart, removeItemFromCart } = useContext(CartContext);
 
-    const removeItem = () => removeCartItem(item);
-    const increaseItem = () => increaseCartItem(item);
-    const decreaseItem = () => decreaseCartItem(item);
+    const clearItem = () => clearItemFromCart(item);
+    const addItem = () => addItemToCart(item);
+    const removeItem = () => removeItemFromCart(item);
 
     return(
         <CheckoutItemContainer>
             <ItemImage src={imgUrl} alt= {name} />
             <ItemName>{name}</ItemName>
             <ItemQuantityContainer>
-                <QuantityChangeButton onClick={decreaseItem}> &#10094; </QuantityChangeButton>
+                <QuantityChangeButton onClick={removeItem}> &#10094; </QuantityChangeButton>
                 <QuantityNumber> {quantity} </QuantityNumber>
-                <QuantityChangeButton onClick={increaseItem}> &#10095; </QuantityChangeButton>
+                <QuantityChangeButton onClick={addItem}> &#10095; </QuantityChangeButton>
             </ItemQuantityContainer>
             <ItemPrice>${price}</ItemPrice>
-            <RemoveItemButton onClick={removeItem}>&#10005;</RemoveItemButton>
+            <RemoveItemButton onClick={clearItem}>&#10005;</RemoveItemButton>
         </CheckoutItemContainer>
     )
 }

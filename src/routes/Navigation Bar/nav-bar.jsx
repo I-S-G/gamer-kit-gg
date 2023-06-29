@@ -10,15 +10,11 @@ import CartDropdown from "../../components/Cart Dropdown/cart-dropdown.component
 const NavBar = () => {
 
     const { currentUser, setCurrentUser } = useContext(UserContext);
-    const { isCartOpen, setIsCartOpen, cartQuantity } = useContext(CartContext);
+    const { isCartOpen, toggleCart, totalQuantity } = useContext(CartContext);
 
     const handleSignOut = async () => {
         await signOutUser();
         setCurrentUser(null);
-    }
-
-    const toggleCart = () => {
-        setIsCartOpen(!isCartOpen);
     }
    
     return(
@@ -52,7 +48,7 @@ const NavBar = () => {
 
                     <CartContainer onClick= {toggleCart}  >
                         <CartSvg />
-                        <CartNumber>{cartQuantity}</CartNumber>
+                        <CartNumber>{totalQuantity}</CartNumber>
                     </CartContainer>
 
                     {
