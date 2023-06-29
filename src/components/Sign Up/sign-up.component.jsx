@@ -25,8 +25,7 @@ const SignUp = () => {
         event.preventDefault();
         try {
             const { user } = await createUserWithEmail(email, password);
-            const userRef = await createUser(user, {displayName});
-            console.log(userRef);
+            await createUser(user, {displayName});
             setFormFields(defaultFormFields);
         }
         catch(error) {

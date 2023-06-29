@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext({
     isCartOpen: false,
-    toggleCart: () => null,
+    setIsCartOpen: () => null,
     cartItems: [],
     addItemToCart: () => null,
     removeCartItem: () => null,
@@ -23,13 +23,20 @@ export const CartProvider = ({children}) => {
         const newQuantity = cartItems.reduce((count, item) => {
             return count + item.quantity;
         }, 0);
+
+        setCartQuantity(newQuantity);
+
+    }, [cartItems]);
+
+    useEffect(() => {
         const newPrice = cartItems.reduce((price, item) => {
             return price + (item.quantity * item.price);
         }, 0);
 
-        setCartQuantity(newQuantity);
         setTotalPrice(newPrice);
+
     }, [cartItems]);
+
 
     const addedCartItems = (cartItems, itemToAdd) => {
         const existingCartItem = cartItems.find((item) => item.id === itemToAdd.id);
@@ -45,7 +52,7 @@ export const CartProvider = ({children}) => {
     }
 
     const removeCartItem = (itemToRemove) => {
-        setCartItems(cartItems.filter((item) => itemToRemove.id === item.id? false: true ));
+        setCartItems(cartItems.filter((item) => itemToRemove.id !== item.id));
     }
 
     const increaseCartItem = (itemToIncrease) => {

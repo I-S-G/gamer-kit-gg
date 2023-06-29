@@ -31,8 +31,8 @@ const SignIn = () => {
         try {
 
             const { user } = await signInWithGooglePopup();
-            const response = await createUser(user);
-            console.log(response);
+            const userDocRef = await createUser(user);
+            console.log(userDocRef);
         } catch (error) {
             switch (error.code) {
                 case ("auth/popup-closed-by-user"): console.log("popup closed by user");

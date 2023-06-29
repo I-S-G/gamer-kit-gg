@@ -11,10 +11,10 @@ const ShopItem = ({item}) => {
         addItemToCart(item);
     }
 
-    const { id, name, imgUrl, price } = item;
+    const { name, imgUrl, price } = item;
 
     return(
-        <ShopItemContainer key={id}>
+        <ShopItemContainer>
             <ItemImage alt = {name} src = {imgUrl} />
             <Footer>
                 <span>{name}</span>

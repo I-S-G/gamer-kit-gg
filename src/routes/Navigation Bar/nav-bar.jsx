@@ -17,7 +17,7 @@ const NavBar = () => {
         setCurrentUser(null);
     }
 
-    const handleCartOpen = () => {
+    const toggleCart = () => {
         setIsCartOpen(!isCartOpen);
     }
    
@@ -25,7 +25,7 @@ const NavBar = () => {
        <Fragment>
             <NavbarContainer>
                 
-                    <NavLogoAndName to= "./" > 
+                    <NavLogoAndName to= "/" > 
                         <NavLogo />
                         <NavTitle>Gamer Kit GG</NavTitle>
                     </NavLogoAndName>
@@ -50,7 +50,7 @@ const NavBar = () => {
                         )
                     }
 
-                    <CartContainer onClick= {handleCartOpen}  >
+                    <CartContainer onClick= {toggleCart}  >
                         <CartSvg />
                         <CartNumber>{cartQuantity}</CartNumber>
                     </CartContainer>
