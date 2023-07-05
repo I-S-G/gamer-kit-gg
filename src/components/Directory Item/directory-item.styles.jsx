@@ -22,7 +22,7 @@ export const BackgroundImageContainer = styled.div`
     height: 100%;
     width: 100%;
     transition: transform 3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-    background-image: url(${({imgUrl}) => imgUrl});
+    background-image: url(${({imgurl}) => imgurl});
 `;
 
 export const DirectoryItemContainer = styled.div`

@@ -1,20 +1,27 @@
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
+import { toggleCart } from "../../store/cart/cart.action";
 import { signOutUser } from "../../utils/firebase.utils";
-import { UserContext } from "../../context/user-context";
-import { CartContext } from "../../context/cart-context";
 import { NavbarContainer, NavLogoAndName, NavLogo, NavTitle, NavLinksContainer, NavSignOut, CartContainer, CartSvg, CartNumber } from "./nav-bar.styles.jsx";
 import CartDropdown from "../../components/Cart Dropdown/cart-dropdown.component";
+import { selectCurrentUser } from "../../store/user/user-selector";
+import { selectIsCartOpen, selectCartQuantity } from "../../store/cart/cart.selector";
 
 const NavBar = () => {
 
-    const { currentUser, setCurrentUser } = useContext(UserContext);
-    const { isCartOpen, toggleCart, totalQuantity } = useContext(CartContext);
+    const dispatch = useDispatch();
+
+    const currentUser = useSelector(selectCurrentUser);
+    const isCartOpen = useSelector(selectIsCartOpen);
+    const totalQuantity = useSelector(selectCartQuantity);
+
+    const handleToggleCart = () => dispatch(toggleCart());
 
     const handleSignOut = async () => {
         await signOutUser();
-        setCurrentUser(null);
     }
    
     return(
@@ -46,7 +53,7 @@ const NavBar = () => {
                         )
                     }
 
-                    <CartContainer onClick= {toggleCart}  >
+                    <CartContainer onClick= {handleToggleCart}  >
                         <CartSvg />
                         <CartNumber>{totalQuantity}</CartNumber>
                     </CartContainer>
