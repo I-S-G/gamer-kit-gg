@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { toggleCart } from "../../store/cart/cart.action";
-import { signOutUser } from "../../utils/firebase.utils";
+import { signOutStart } from "../../store/user/user-action";
 import { NavbarContainer, NavLogoAndName, NavLogo, NavTitle, NavLinksContainer, NavSignOut, CartContainer, CartSvg, CartNumber } from "./nav-bar.styles.jsx";
 import CartDropdown from "../../components/Cart Dropdown/cart-dropdown.component";
 import { selectCurrentUser } from "../../store/user/user-selector";
@@ -20,9 +20,7 @@ const NavBar = () => {
 
     const handleToggleCart = () => dispatch(toggleCart());
 
-    const handleSignOut = async () => {
-        await signOutUser();
-    }
+    const handleSignOut = () =>dispatch(signOutStart());
    
     return(
        <Fragment>

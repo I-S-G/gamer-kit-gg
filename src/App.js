@@ -1,8 +1,7 @@
 import './App.css';
 import { useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import { authListener} from "./utils/firebase.utils";
-import { setCurrentUser } from './store/user/user-action';
+import { checkUserSession } from './store/user/user-action';
 
 
 import { Routes, Route } from 'react-router-dom';
@@ -18,11 +17,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = authListener((user) => {
-            dispatch(setCurrentUser(user));
-        })
-        
-        return unsubscribe;
+      dispatch(checkUserSession());
     }, [dispatch]);
 
   return (

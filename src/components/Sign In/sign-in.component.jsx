@@ -1,5 +1,8 @@
-import { signInWithGooglePopup, signInWithGoogleRedirect, getRedirectR, createUser, signInWithEmail } from "../../utils/firebase.utils";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useDispatch } from 'react-redux';
+
+import { signInWithEmail } from "../../utils/firebase.utils";
+import { googleSignInStart, googleRedirectSignInStart } from '../../store/user/user-action';
 import FormInput from "../Form Input/form-input.component";
 import Button from "../Button/button.component";
 import { SignInContainer, GoogleButtons, Title, Subtitle } from "./sign-in.component.styles";
@@ -11,37 +14,13 @@ const SignIn = () => {
         password: ""
     }
 
+    const dispatch = useDispatch();
     const [ formFields, setFormFields ] = useState(defaultFormFields);
     const { email, password } = formFields;
 
-    useEffect(() => {
-        const fetchDataAndCreateUser = async () => {
-            const response = await getRedirectR();
-            if (response != null) {
-                const userRef = await createUser(response.user);
-                console.log(userRef);
-            }
-        }
-
-        fetchDataAndCreateUser();
-
-    }, []);
-
-    const logGooglePopupUser = async () => {
-        try {
-
-            const { user } = await signInWithGooglePopup();
-            const userDocRef = await createUser(user);
-            console.log(userDocRef);
-        } catch (error) {
-            switch (error.code) {
-                case ("auth/popup-closed-by-user"): console.log("popup closed by user");
-                break;
-                default: console.log(error.code);
-                break;
-            }
-        }
-    }
+    const logGooglePopupUser = () => dispatch(googleSignInStart());
+        
+    const logGoogleRedirectUser = () => dispatch(googleRedirectSignInStart());
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -79,7 +58,7 @@ const SignIn = () => {
                 <Button onClick={logGooglePopupUser} buttonType= "google"> 
                     Sign in with google popup
                 </Button>
-                <Button onClick={signInWithGoogleRedirect} buttonType= "google">
+                <Button onClick={logGoogleRedirectUser} buttonType= "google">
                     Sign in with google redirect
                 </Button>
             </GoogleButtons>

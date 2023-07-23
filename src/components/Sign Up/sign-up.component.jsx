@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { createUser, createUserWithEmail } from "../../utils/firebase.utils";
+import { useDispatch } from 'react-redux';
+
+import { signUpStart } from "../../store/user/user-action";
 import FormInput from "../Form Input/form-input.component";
 import Button from "../Button/button.component";
 import { SignUpContainer, Title, Subtitle } from "./sign-up.styles";
 
 const SignUp = () => {
+
+    const dispatch = useDispatch();
 
     const defaultFormFields = {
         displayName: "",
@@ -21,22 +25,14 @@ const SignUp = () => {
         setFormFields({...formFields, [name]: value});
     }
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        try {
-            const { user } = await createUserWithEmail(email, password);
-            await createUser(user, {displayName});
-            setFormFields(defaultFormFields);
-        }
-        catch(error) {
-            switch(error.code) {
-                case "auth/network-request-failed": alert("Network Problem");
-                break;
-                default: console.log(error);
-                break;
-            }
-            
-        }
+        if(password !== confirmPassword) {
+            alert('passwords do not match')
+            return;
+        } 
+        dispatch(signUpStart(email, password, displayName));
+        setFormFields(defaultFormFields);
     }
 
     return(
