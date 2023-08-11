@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from 'react-redux';
 
 import { signInWithEmail } from "../../utils/firebase.utils";
-import { googleSignInStart, googleRedirectSignInStart } from '../../store/user/user-action';
+import { googleSignInStart, googleRedirectSignInStart } from '../../store/user/user.action';
 import FormInput from "../Form Input/form-input.component";
 import Button from "../Button/button.component";
 import { SignInContainer, GoogleButtons, Title, Subtitle } from "./sign-in.component.styles";

@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import { checkUserSession } from './store/user/user-action';
+import { checkUserSession } from './store/user/user.action';
 
 
 import { Routes, Route } from 'react-router-dom';

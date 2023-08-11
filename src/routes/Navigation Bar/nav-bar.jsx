@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { toggleCart } from "../../store/cart/cart.action";
-import { signOutStart } from "../../store/user/user-action";
+import { signOutStart } from "../../store/user/user.action";
 import { NavbarContainer, NavLogoAndName, NavLogo, NavTitle, NavLinksContainer, NavSignOut, CartContainer, CartSvg, CartNumber } from "./nav-bar.styles.jsx";
 import CartDropdown from "../../components/Cart Dropdown/cart-dropdown.component";
-import { selectCurrentUser } from "../../store/user/user-selector";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectIsCartOpen, selectCartQuantity } from "../../store/cart/cart.selector";
 
 const NavBar = () => {

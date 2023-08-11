@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 
-import { signUpStart } from "../../store/user/user-action";
+import { signUpStart } from "../../store/user/user.action";
 import FormInput from "../Form Input/form-input.component";
 import Button from "../Button/button.component";
 import { SignUpContainer, Title, Subtitle } from "./sign-up.styles";
